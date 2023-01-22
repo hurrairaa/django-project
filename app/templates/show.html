@@ -1,0 +1,43 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Employee Records</title>  
+     {% load staticfiles %}  
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<div class="container">
+    <div class="mt-5 col-md-12">
+        <table class="table table-striped table-bordered table-sm">  
+            <thead class="thead-dark">  
+            <tr>  
+                <th>ID</th>  
+                <th>Title</th>  
+                <th>Description</th>  
+                <th>Actions</th>  
+            </tr>  
+            </thead>  
+            <tbody>  
+        {% for blog in blogs %}  
+            <tr>  
+                <td>{{ blog.id }}</td>  
+                <td>{{ blog.title }}</td>  
+                <td>{{ blog.description }}</td>  
+                <td>  
+                    <a href="/edit/{{ blog.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+                    <a href="/delete/{{ blog.id }}">Delete</a>  
+                </td>  
+            </tr>  
+        {% endfor %}  
+            </tbody>  
+        </table>  
+    </div>
+</div>
+
+<br>  
+<br>  
+<center><a href="/emp" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>
